@@ -5,12 +5,14 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './containers/main';
+import { AppBar } from './ui/app-bar'
 
 @NgModule({
   // Specify a list of directives to use
   declarations: [
     AppComponent,
     MainComponent,
+    AppBar,
   ],
   imports: [
     BrowserModule,
