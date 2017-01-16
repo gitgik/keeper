@@ -4,15 +4,19 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { MainComponent } from './containers/main';
+import { MainContainer } from './containers/main';
+import { NotesContainer } from './containers/notes';
 import { AppBar } from './ui/app-bar'
+import { NoteCard } from './ui/note-card'
 
 @NgModule({
   // Specify a list of directives to use
   declarations: [
     AppComponent,
-    MainComponent,
+    MainContainer,
     AppBar,
+    NoteCard,
+    NotesContainer
   ],
   imports: [
     BrowserModule,
