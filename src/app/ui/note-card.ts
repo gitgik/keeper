@@ -1,6 +1,8 @@
 import {
   Component,
-  Input
+  Input,
+  Output,
+  EventEmitter, // Import this subject to emit custom events
 } from '@angular/core';
 
 @Component({
@@ -62,6 +64,7 @@ import {
 export class NoteCard {
   // This input component allows us to pass in note data
   @Input() note = {}; //  Take in a note
+  @Output() checked = new EventEmitter();
 
   isCardChecked:boolean = false;
 
@@ -71,5 +74,6 @@ export class NoteCard {
 
   onChecked() {
     console.log("Clear clicked");
+    this.checked.next(this.note);
   }
 };
