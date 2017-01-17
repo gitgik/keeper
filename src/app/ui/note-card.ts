@@ -9,11 +9,10 @@ import {
   selector: 'note-card',
   styles: [`
     .note-card: {
-      padding: 15px;
+      padding: 25px;
       border-radius: 2px;
       width: 100%;
       position: relative;
-      background-color: #fff !important;
     }
 
     .title {
@@ -64,7 +63,7 @@ import {
 export class NoteCard {
   // This input component allows us to pass in note data
   @Input() note = {}; //  Take in a note
-  @Output() checked = new EventEmitter();
+  @Output() checkEvent = new EventEmitter();
 
   isCardChecked:boolean = false;
 
@@ -73,7 +72,7 @@ export class NoteCard {
   }
 
   onChecked() {
-    console.log("Clear clicked");
-    this.checked.next(this.note);
+    // remove the card from the list
+    this.checkEvent.next(this.note);
   }
 };

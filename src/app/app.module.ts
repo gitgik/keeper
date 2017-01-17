@@ -8,6 +8,7 @@ import { MainContainer } from './containers/main';
 import { NotesContainer } from './containers/notes';
 import { AppBar } from './ui/app-bar'
 import { NoteCard } from './ui/note-card'
+import { NoteCreator } from './ui/note-creator'
 
 @NgModule({
   // Specify a list of directives to use
@@ -16,7 +17,8 @@ import { NoteCard } from './ui/note-card'
     MainContainer,
     AppBar,
     NoteCard,
-    NotesContainer
+    NotesContainer,
+    NoteCreator,
   ],
   imports: [
     BrowserModule,
