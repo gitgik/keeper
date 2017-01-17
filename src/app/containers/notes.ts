@@ -15,7 +15,7 @@ import { Component } from '@angular/core';
   template: `
     <div class="row center-xs notes">
       <div class="col-xs-6 creator">
-        <note-creator></note-creator>
+        <note-creator (createNote)="onNoteCreated($event)"></note-creator>
       </div>
       <div class="notes col-xs-8">
         <div class="row between-xs">
@@ -48,6 +48,12 @@ export class NotesContainer {
 
   onNoteChecked (i) {
     // splice the checked note out of the array
-    this.notes.splice(i, 1)
+    this.notes.splice(i, 1);
+  }
+
+  // Handle action to be taken once the create note event is triggered
+  onNoteCreated(note) {
+    // add note to list of notes
+    this.notes.push(note);
   }
 };
