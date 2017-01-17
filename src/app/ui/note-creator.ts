@@ -21,14 +21,25 @@ import { Component } from '@angular/core'
   template: `
     <div class="note-creator shadow-1">
       <form class="row">
-        <input type="text" placeholder="Title" class="col-xs-10 title">
-        <input type="text" placeholder="Take a note..." class="col-xs-10">
+        <input type="text" placeholder="Title" class="col-xs-10 title"
+          [(ngModel)]="newNote.title" name="noteTitle"
+        >
+        <input type="text" placeholder="Take a note..." class="col-xs-10"
+          [(ngModel)]="newNote.value" name="noteValue"
+        >
         <div class="actions col-xs-12 row between-xs">
           <button type="submit" class="btn-light">Done</button>
         </div>
       </form>
+      <pre>{{ newNote | json }}</pre>
     </div>
   `
 })
 
-export class NoteCreator {};
+export class NoteCreator {
+
+  newNote = {
+    title: '',
+    value: ''
+  }
+};
