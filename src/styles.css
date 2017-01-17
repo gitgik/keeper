@@ -16,6 +16,10 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+.white {
+  background-color: #fff;
+}
+
 .btn-light {
   border: none;
   outline: none;

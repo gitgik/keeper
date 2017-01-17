@@ -11,7 +11,9 @@ import {
       border-radius: 2px;
       width: 100%;
       position: relative;
+      background-color: #fff !important;
     }
+
     .title {
       font-size: 1.2em;
       font-weight: bold;
@@ -38,8 +40,16 @@ import {
     }
     `],
     template: `
-      <div class="note-card row shadow-1">
-        <div class="icon">
+      <div
+        class="note-card row shadow-1"
+        (mouseleave)="toggleChecked()"
+        (mouseenter)="toggleChecked() "
+      >
+        <div
+          class="icon"
+          (click)="onChecked()"
+          *ngIf="isCardChecked"
+        >
           <i class="material-icons">check</i>
         </div>
         <div class="col-xs-12 title">{{ note.title }}</div>
@@ -51,4 +61,14 @@ import {
 export class NoteCard {
   // This input component allows us to pass in note data
   @Input() note = {}; //  Take in a note
+
+  isCardChecked:boolean = false;
+
+  toggleChecked() {
+    this.isCardChecked = !this.isCardChecked;
+  }
+
+  onChecked() {
+    console.log("Clear clicked");
+  }
 };

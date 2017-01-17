@@ -4,11 +4,11 @@ import { Component } from '@angular/core';
   selector: 'notes-container',
   template: `
     <div class="row center-xs notes">
-      <div class="col-xs-6 creator"> Create note her</div>
+      <div class="col-xs-6 creator">Your notes</div>
       <div class="notes col-xs-8">
         <div class="row between-xs">
           <note-card
-            class="col-xs-4"
+            class="white col-xs-4"
             [note]="sample"
           >
           </note-card>
