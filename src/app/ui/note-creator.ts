@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, Output, EventEmitter } from '@angular/core'
 
 
 @Component({
@@ -20,7 +20,7 @@ import { Component } from '@angular/core'
   `],
   template: `
     <div class="note-creator shadow-1">
-      <form class="row">
+      <form class="row" (submit)="onCreateNote()">
         <input type="text" placeholder="Title" class="col-xs-10 title"
           [(ngModel)]="newNote.title" name="noteTitle"
         >
@@ -37,9 +37,30 @@ import { Component } from '@angular/core'
 })
 
 export class NoteCreator {
+  // Declare an event to be emitted when a new note is created
+  @Output() createNote = new EventEmitter();
 
   newNote = {
     title: '',
     value: ''
+  }
+
+  onCreateNote() {
+    const {title, value} = this.newNote;
+
+    if (title && value) {
+      // fire event if only there's a title and a value filled up
+      this.createNote.next({title, value});
+    }
+    // reset the input fields
+    this.reset();
+  }
+
+  // Resets the input field values to be empty
+  reset() {
+    this.newNote = {
+      title: '',
+      value: ''
+    }
   }
 };
