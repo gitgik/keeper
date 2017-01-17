@@ -43,7 +43,8 @@ import {
       <div
         class="note-card row shadow-1"
         (mouseleave)="toggleChecked()"
-        (mouseenter)="toggleChecked() "
+        (mouseenter)="toggleChecked()"
+        [ngStyle]="{ 'background-color': note.color }"
       >
         <div
           class="icon"
