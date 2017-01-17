@@ -8,8 +8,9 @@ import { Component } from '@angular/core';
       <div class="notes col-xs-8">
         <div class="row between-xs">
           <note-card
-            class="white col-xs-4"
-            [note]="sample"
+            class="col-xs-4"
+            [note]="note"
+            *ngFor="let note of notes"
           >
           </note-card>
         </div>
@@ -18,5 +19,24 @@ import { Component } from '@angular/core';
 })
 
 export class NotesContainer {
-  sample = {title: 'this is a note', value: 'eat some food'};
+  sample = {
+    title: 'this is a note',
+    value: 'eat some food',
+    color: 'lightblue'
+  };
+
+  notes = [
+    {
+      title: 'this is a note',
+      value: 'eat some food',
+      color: 'turquoise'
+    },
+    {
+      title: 'travel',
+      value: 'go to ibiza',
+      color: 'yellow'
+    }
+  ];
+
+
 };
