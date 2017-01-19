@@ -8,6 +8,8 @@ import { Component, Output, EventEmitter } from '@angular/core'
       border-radius: 3px;
       background-color: #fff;
       padding: 20px;
+      position: relative;
+      top: 1em;
     }
     .title {
       font-weight: bold;
@@ -23,15 +25,18 @@ import { Component, Output, EventEmitter } from '@angular/core'
       <form class="row" (submit)="onCreateNote()">
         <input type="text" placeholder="Title" class="col-xs-10 title"
           [(ngModel)]="newNote.title" name="noteTitle"
+          *ngIf="fullForm"
         >
         <input type="text" placeholder="Take a note..." class="col-xs-10"
+          (focus)="toggleForm(true)"
           [(ngModel)]="newNote.value" name="noteValue"
         >
         <div class="actions col-xs-12 row between-xs">
-          <button type="submit" class="btn-light">Done</button>
+          <button
+            *ngIf="newNote.value && newNote.title"
+           type="submit" class="btn-light">Done</button>
         </div>
       </form>
-      <pre>{{ newNote | json }}</pre>
     </div>
   `
 })
@@ -43,6 +48,12 @@ export class NoteCreator {
   newNote = {
     title: '',
     value: ''
+  };
+
+  fullForm: boolean = false;
+
+  toggleForm(value: boolean) {
+    this.fullForm = value;
   }
 
   onCreateNote() {
@@ -54,6 +65,7 @@ export class NoteCreator {
     }
     // reset the input fields
     this.reset();
+    this.toggleForm(false);
   }
 
   // Resets the input field values to be empty
