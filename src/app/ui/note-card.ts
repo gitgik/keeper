@@ -9,21 +9,21 @@ import {
   selector: 'note-card',
   styles: [`
     .note-card: {
-      padding: 25px;
-      border-radius: 2px;
+      padding: 15px;
+      border-radius: 4px;
       width: 100%;
       position: relative;
     }
 
     .title {
-      font-size: 1.2em;
+      font-size: 1.2rem;
       font-weight: bold;
       text-align: left;
       color: rgba(0,0,0,0.8);
     }
     .value {
       text-align: left;
-      font-size: 1.4em;
+      font-size: 1.4rem;
       font-weight: 200;
     }
     .icon {
@@ -39,25 +39,25 @@ import {
       border-radius: 100%;
       cursor: pointer;
     }
-    `],
-    template: `
+  `],
+  template: `
+    <div
+      class="note-card shadow-1"
+      (mouseleave)="toggleChecked()"
+      (mouseenter)="toggleChecked()"
+      [ngStyle]="{ 'background-color': note.color }"
+    >
       <div
-        class="note-card row shadow-1"
-        (mouseleave)="toggleChecked()"
-        (mouseenter)="toggleChecked()"
-        [ngStyle]="{ 'background-color': note.color }"
+        class="icon"
+        (click)="onChecked()"
+        *ngIf="isCardChecked"
       >
-        <div
-          class="icon"
-          (click)="onChecked()"
-          *ngIf="isCardChecked"
-        >
-          <i class="material-icons">check</i>
-        </div>
-        <div class="col-xs-12 title">{{ note.title }}</div>
-        <div class="col-xs-12 value">{{ note.value }}</div>
+        <i class="material-icons">check</i>
       </div>
-    `,
+      <div class="col-xs-12 title">{{ note.title }}</div>
+      <div class="col-xs-12 value">{{ note.value }}</div>
+    </div>
+  `,
 })
 
 export class NoteCard {

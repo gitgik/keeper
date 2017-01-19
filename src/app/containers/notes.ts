@@ -4,8 +4,7 @@ import { Component } from '@angular/core';
   selector: 'notes-container',
   styles: [`
     .notes: {
-      padding-top: 50px;
-      margin-top:10px;
+      padding: 50px;
     }
 
     .creator {
@@ -43,6 +42,11 @@ export class NotesContainer {
       title: 'travel',
       value: 'go to ibiza',
       color: 'yellow'
+    },
+    {
+      title: 'Eat',
+      value: 'go eat pizza',
+      color: 'lightgreen'
     }
   ];
 
