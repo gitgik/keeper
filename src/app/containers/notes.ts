@@ -32,6 +32,7 @@ import { Component } from '@angular/core';
 })
 
 export class NotesContainer {
+  // display data
   notes = [
     {
       title: 'this is a note',
@@ -50,6 +51,7 @@ export class NotesContainer {
     }
   ];
 
+  // Remove the note when checked
   onNoteChecked (i) {
     // splice the checked note out of the array
     this.notes.splice(i, 1);
