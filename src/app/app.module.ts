@@ -9,6 +9,7 @@ import { NotesContainer } from './containers/notes';
 import { AppBar } from './ui/app-bar'
 import { NoteCard } from './ui/note-card'
 import { NoteCreator } from './ui/note-creator'
+import {ColorPicker} from './ui/color-picker'
 
 @NgModule({
   // Specify a list of directives to use
@@ -19,6 +20,7 @@ import { NoteCreator } from './ui/note-creator'
     NoteCard,
     NotesContainer,
     NoteCreator,
+    ColorPicker,
   ],
   imports: [
     BrowserModule,
