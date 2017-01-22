@@ -31,10 +31,12 @@ import { Component, Output, EventEmitter } from '@angular/core'
           (focus)="toggleForm(true)"
           [(ngModel)]="newNote.value" name="noteValue"
         >
-        <div class="actions col-xs-12 row between-xs">
-          <button
-            *ngIf="newNote.value && newNote.title"
-           type="submit" class="btn-light">Done</button>
+        <div class="actions col-xs-12 row between-xs"
+        *ngIf="newNote.value && newNote.title">
+          <div class="col-xs-3">
+            <color-picker></color-picker>
+          </div>
+          <button type="submit" class="btn-light">Done</button>
         </div>
       </form>
     </div>
