@@ -21,7 +21,7 @@ import { Component, Output, EventEmitter } from '@angular/core'
     .
   `],
   template: `
-    <div class="note-creator shadow-1">
+    <div class="note-creator shadow-1" [ngStyle]="{'background-color': newNote.color}">
       <form class="row" (submit)="onCreateNote()">
         <input type="text" placeholder="Title" class="col-xs-10 title"
           [(ngModel)]="newNote.title" name="noteTitle"
@@ -34,7 +34,10 @@ import { Component, Output, EventEmitter } from '@angular/core'
         <div class="actions col-xs-12 row between-xs"
         *ngIf="newNote.value && newNote.title">
           <div class="col-xs-3">
-            <color-picker></color-picker>
+            <color-picker
+            [colors]="colors"
+            (selected)="onColorSelected($event)"
+            ></color-picker>
           </div>
           <button type="submit" class="btn-light">Done</button>
         </div>
@@ -47,9 +50,15 @@ export class NoteCreator {
   // Declare an event to be emitted when a new note is created
   @Output() createNote = new EventEmitter();
 
+  colors: string[] = [
+    '#77DD77', '#2B92DA', '#D2E9E7', '#8CA9DE', '#FA8787', '#FFF', '#F4A9C2',
+    '#FF6961', '#B19CD9'];
+
+
   newNote = {
     title: '',
-    value: ''
+    value: '',
+    color: '#fff',
   };
 
   fullForm: boolean = false;
@@ -59,11 +68,11 @@ export class NoteCreator {
   }
 
   onCreateNote() {
-    const {title, value} = this.newNote;
+    const {title, value, color} = this.newNote;
 
     if (title && value) {
       // fire event if only there's a title and a value filled up
-      this.createNote.next({title, value});
+      this.createNote.next({title, value, color});
     }
     // reset the input fields
     this.reset();
@@ -74,7 +83,12 @@ export class NoteCreator {
   reset() {
     this.newNote = {
       title: '',
-      value: ''
+      value: '',
+      color: '#fff',
     }
+  }
+
+  onColorSelected(color: string) {
+    this.newNote.color = color;
   }
 };
