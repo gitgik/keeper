@@ -33,6 +33,7 @@ export class ApiService {
     }
   }
 
+  // Handle GET http request with an observable
   get(path: string): Observable<any> {
     return this.http.get(
       `${this.api_url}${path}`,
@@ -43,6 +44,7 @@ export class ApiService {
     .map(this.getJson)
   }
 
+  // Handle POST http request with an observable
   post(path: string, body): Observable<any> {
     return this.http.post(
       `${this.api_url}${path}`,
@@ -54,6 +56,7 @@ export class ApiService {
     .map(this.getJson);
   }
 
+  // Handle DELETE http request with an observable
   delete(path: string): Observable<any> {
     return this.http.delete(
       `${this.api_url}${path}`,
@@ -63,6 +66,4 @@ export class ApiService {
     .catch(err => Observable.throw(err))
     .map(this.getJson);
   }
-
-
 }
