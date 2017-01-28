@@ -50,6 +50,10 @@ export class NotesContainer {
   onNoteChecked (i) {
     // splice the checked note out of the array
     // this.notes.splice(i, 1);
-    
+    this.noteService.deleteNote(note)
+    .subscribe(note => {
+      const i = this.notes.findIndex(localNote => localNote.id === note.id);
+      this.notes.splice(i, 1);
+    })
   }
 };
