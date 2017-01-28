@@ -6,7 +6,7 @@ export class NoteService {
   constructor(private api: ApiService) {}
 
   // handle POST request
-  createNotes(note) {
+  createNote(note) {
     return this.api.post(this.path, note)
   }
 
@@ -16,7 +16,7 @@ export class NoteService {
   }
 
   // handle DELETE request
-  deleteNotes(note) {
+  deleteNote(note) {
     return this.api.delete(`${this.path}/${note.id}`);
   }
 }

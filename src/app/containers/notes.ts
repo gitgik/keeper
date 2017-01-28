@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NoteService } from '../services';
 
 @Component({
   selector: 'notes-container',
@@ -32,34 +33,23 @@ import { Component } from '@angular/core';
 })
 
 export class NotesContainer {
-  // display data
-  notes = [
-    {
-      title: 'this is a note',
-      value: 'eat some food',
-      color: 'turquoise'
-    },
-    {
-      title: 'travel',
-      value: 'go to ibiza',
-      color: 'yellow'
-    },
-    {
-      title: 'Eat',
-      value: 'go eat pizza',
-      color: 'lightgreen'
-    }
-  ];
 
-  // Remove the note when checked
-  onNoteChecked (i) {
-    // splice the checked note out of the array
-    this.notes.splice(i, 1);
-  }
+  constructor(private noteService: NoteService) {}
+
+  // notes to be dispayed
+  notes = [];
 
   // Handle action to be taken once the create note event is triggered
   onNoteCreated(note) {
     // add note to list of notes
-    this.notes.push(note);
+    this.noteService.createNote(note)
+    .subscribe(note => this.notes.push(note));
+  }
+
+  // Remove the note when checked
+  onNoteChecked (i) {
+    // splice the checked note out of the array
+    // this.notes.splice(i, 1);
+    
   }
 };
