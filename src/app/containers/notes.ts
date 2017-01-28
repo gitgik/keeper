@@ -22,8 +22,8 @@ import { NoteService } from '../services';
           <note-card
             class="col-xs-4"
             [note]="note"
-            *ngFor="let note of notes; let i = index"
-            (checkEvent)="onNoteChecked(i)"
+            *ngFor="let note of notes"
+            (checkEvent)="onNoteChecked($event)"
           >
           </note-card>
         </div>
@@ -47,7 +47,7 @@ export class NotesContainer {
   }
 
   // Remove the note when checked
-  onNoteChecked (i) {
+  onNoteChecked (note) {
     // splice the checked note out of the array
     // this.notes.splice(i, 1);
     this.noteService.deleteNote(note)
