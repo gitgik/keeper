@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NoteService } from '../services';
+import { NoteService } from '../services/notes';
 
 @Component({
   selector: 'notes-container',
@@ -34,7 +34,10 @@ import { NoteService } from '../services';
 
 export class NotesContainer {
 
-  constructor(private noteService: NoteService) {}
+  constructor(private noteService: NoteService) {
+    this.noteService.getNotes()
+    .subscribe(resp => this.notes = resp.data);
+  }
 
   // notes to be dispayed
   notes = [];
