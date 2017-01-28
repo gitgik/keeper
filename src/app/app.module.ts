@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { NoteService } from './services/notes';
+import { ApiService } from './services/api';
 import { AppComponent } from './app.component';
 import { MainContainer } from './containers/main';
 import { NotesContainer } from './containers/notes';
@@ -27,7 +29,7 @@ import {ColorPicker} from './ui/color-picker'
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [ ApiService, NoteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
