@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { ApiService } from './services/api';
+import { NoteService } from './services/notes';
 
 import { AppComponent } from './app.component';
 import { MainContainer } from './containers/main';
@@ -27,7 +29,10 @@ import {ColorPicker} from './ui/color-picker'
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    ApiService,
+    NoteService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
