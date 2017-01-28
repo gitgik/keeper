@@ -12,9 +12,11 @@ export class NoteService {
   }
 
   // handle GET request
+
   getNotes() {
     return this.api.get(this.path);
   }
+
 
   // handle DELETE request
   deleteNote(note) {
