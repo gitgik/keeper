@@ -8,6 +8,7 @@ import { NoteService } from './services/notes';
 import { AppComponent } from './app.component';
 import { MainContainer } from './containers/main';
 import { NotesContainer } from './containers/notes';
+import { routes } from './routes';
 import { AppBar } from './ui/app-bar'
 import { NoteCard } from './ui/note-card'
 import { NoteCreator } from './ui/note-creator'
@@ -27,7 +28,8 @@ import {ColorPicker} from './ui/color-picker'
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routes
   ],
   providers: [
     ApiService,
