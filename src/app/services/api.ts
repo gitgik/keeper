@@ -11,7 +11,7 @@ export class ApiService {
     Accept: 'application/json'
   });
 
-  api_url: string = "http://localhost:4200"
+  api_url: string = "http://localhost:3500"
 
   // constructor to inject other services we need
   constructor(private http: Http) {
