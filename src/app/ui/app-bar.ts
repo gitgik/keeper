@@ -23,7 +23,7 @@ import { Component } from '@angular/core';
   `],
   template: `
     <header class="app-bar row middle-xs">
-      <span class="logo col-xs-10">Keeper</span>
+      <span [routerLink]="['']" class="logo col-xs-10">Keeper</span>
       <nav class="col-xs-2">
         <div class="row middle-xs between-xs">
           <span class="link">Settings</span>
