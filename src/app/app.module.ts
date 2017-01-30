@@ -5,6 +5,8 @@ import { HttpModule } from '@angular/http';
 
 import { ApiService } from './services/api';
 import { NoteService } from './services/notes';
+import { StoreHelper } from './services/store-helper';
+import { Store } from './store';
 
 import { AppComponent } from './app.component';
 import { MainContainer } from './containers/main';
@@ -34,7 +36,8 @@ import {ColorPicker} from './ui/color-picker'
   ],
   providers: [
     ApiService,
-    NoteService
+    NoteService,
+    StoreHelper
   ],
   bootstrap: [AppComponent]
 })
