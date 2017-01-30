@@ -26,6 +26,7 @@ export class NoteService {
 
   // handle DELETE request
   deleteNote(note) {
-    return this.api.delete(`${this.path}/${note.id}`);
+    return this.api.delete(`${this.path}/${note.id}`)
+    .do(res => this.storeHelper.findAndDelete('notes', res.id));
   }
 }
