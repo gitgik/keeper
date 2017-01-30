@@ -58,7 +58,7 @@ export class NotesContainer implements OnDestroy {
   onNoteCreated(note) {
     // add note to list of notes
     this.noteService.createNote(note)
-    .subscribe(note => this.notes.push(note));
+    .subscribe();
   }
 
   // Remove the note when checked
@@ -66,9 +66,6 @@ export class NotesContainer implements OnDestroy {
     // splice the checked note out of the array
     // this.notes.splice(i, 1);
     this.noteService.deleteNote(note)
-    .subscribe(note => {
-      const i = this.notes.findIndex(localNote => localNote.id === note.id);
-      this.notes.splice(i, 1);
-    })
+    .subscribe();
   }
 };

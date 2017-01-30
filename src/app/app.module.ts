@@ -37,7 +37,8 @@ import {ColorPicker} from './ui/color-picker'
   providers: [
     ApiService,
     NoteService,
-    StoreHelper
+    StoreHelper,
+    Store
   ],
   bootstrap: [AppComponent]
 })
