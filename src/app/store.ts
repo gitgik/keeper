@@ -24,7 +24,7 @@ const defaultState: State = {
 
 const _store = new BehaviorSubject<State>(defaultState);
 
-@Injectable
+@Injectable()
 export class Store {
 
 }
