@@ -19,7 +19,8 @@ export class NoteService {
   // handle GET request
 
   getNotes() {
-    return this.api.get(this.path);
+    return this.api.get(this.path)
+    .do(resp =>  this.storeHelper.update('notes', resp.data));
   }
 
 
