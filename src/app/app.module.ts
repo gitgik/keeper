@@ -11,6 +11,7 @@ import { Store } from './store';
 import { AppComponent } from './app.component';
 import { MainContainer } from './containers/main';
 import { NotesContainer } from './containers/notes';
+import { AuthContainer } from './containers/auth';
 import { routes } from './routes';
 import { AppBar } from './ui/app-bar'
 import { NoteCard } from './ui/note-card'
@@ -21,6 +22,7 @@ import {ColorPicker} from './ui/color-picker'
   // Specify a list of directives to use
   declarations: [
     AppComponent,
+    AuthContainer,
     MainContainer,
     AppBar,
     NoteCard,
@@ -38,7 +40,7 @@ import {ColorPicker} from './ui/color-picker'
     ApiService,
     NoteService,
     StoreHelper,
-    Store
+    Store,
   ],
   bootstrap: [AppComponent]
 })
