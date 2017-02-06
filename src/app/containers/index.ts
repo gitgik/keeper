@@ -1,1 +1,0 @@
-import { MainComponent } from './main';
