@@ -7,10 +7,12 @@ import { ApiService } from './services/api';
 import { NoteService } from './services/notes';
 import { StoreHelper } from './services/store-helper';
 import { Store } from './store';
+import { AuthService } from './services/auth';
 
 import { AppComponent } from './app.component';
 import { MainContainer } from './containers/main';
 import { NotesContainer } from './containers/notes';
+import { AuthContainer } from './containers/auth';
 import { routes } from './routes';
 import { AppBar } from './ui/app-bar'
 import { NoteCard } from './ui/note-card'
@@ -27,6 +29,7 @@ import {ColorPicker} from './ui/color-picker'
     NotesContainer,
     NoteCreator,
     ColorPicker,
+    AuthContainer,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import {ColorPicker} from './ui/color-picker'
     ApiService,
     NoteService,
     StoreHelper,
-    Store
+    Store,
+    AuthService,
   ],
   bootstrap: [AppComponent]
 })

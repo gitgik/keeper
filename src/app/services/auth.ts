@@ -6,7 +6,7 @@ import 'rxjs/Rx';
 export class AuthService implements CanActivate {
 
   JWT_KEY: string  = 'keeper_token';
-  JWT: string = '';
+  JWT: string = 'p';
 
   constructor(private router: Router) {}
 
