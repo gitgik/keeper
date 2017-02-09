@@ -16,9 +16,19 @@ export class AuthService implements CanActivate {
     private router: Router,
     private store: Store,
     private storeHelper: StoreHelper,
+    private api: ApiService,
   ) {
     const token = window.localStorage.getItem(this.JWT)
 
+    if (token) {
+      this.setJwt(token);
+    }
+  }
+
+  setJwt(jwt: string) {
+    // set the authorization header
+    this.api.setHeaders({Authorization: `Bearer ${jwt}`});
+    window.localStorage.setItem(this.JWT_KEY, jwt);
   }
 
   isAuthorized(): boolean {
