@@ -66,4 +66,10 @@ export class ApiService {
     .catch(err => Observable.throw(err))
     .map(this.getJson);
   }
+
+  // this function allows us to update the http headers dynamically
+  setHeaders(headers) {
+    Object.keys(headers)
+    .forEach(header => this.headers.set(header, headers[header]));
+  }
 }
