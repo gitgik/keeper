@@ -3,6 +3,7 @@ import { CanActivate, Router } from '@angular/router';
 import { StoreHelper } from './store-helper';
 import { Store } from '../store';
 import { ApiService } from './api';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 
 
@@ -46,5 +47,12 @@ export class AuthService implements CanActivate {
     if (!canActivate) {
       this.router.navigate(['','auth']);
     }
+  }
+
+  authenticate(path, credentials): Observable<any> {
+    return this.api.post(`/${path}`, credentials)
+    .do((res: any) => this.setJwt(res.token))
+    .do((res: any) => this.storeHelper.update('user', res.data))
+    .map((res: any) => res.data);
   }
 }
