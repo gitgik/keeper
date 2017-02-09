@@ -55,4 +55,10 @@ export class AuthService implements CanActivate {
     .do((res: any) => this.storeHelper.update('user', res.data))
     .map((res: any) => res.data);
   }
+
+  signout() {
+    window.localStorage.removeItem(this.JWT_KEY);
+    this.store.purge();
+    this.router.navigate(['', 'auth']);
+  }
 }

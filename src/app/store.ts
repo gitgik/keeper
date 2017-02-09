@@ -14,11 +14,11 @@ export interface Note {
 }
 
 export interface User {
-  id: string
+  id?: string
 }
 
 export interface State {
-  notes: Note[],
+  notes: Array<Note>,
   user: User
 }
 
