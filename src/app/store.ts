@@ -13,13 +13,19 @@ export interface Note {
   userId?: string | number
 }
 
+export interface User {
+  id: string
+}
+
 export interface State {
-  notes: Note[]
+  notes: Note[],
+  user: User
 }
 
 
 const defaultState: State = {
-  notes: []
+  notes: [],
+  user: {}
 }
 
 /* Create a Behavior subject.
