@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../services/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'auth-container',
@@ -42,7 +44,8 @@ import { Component } from '@angular/core';
   `],
   template: `
   <div class="auth row center-xs middle-xs">
-    <form class="col-xs-6 shadow-2">
+    <form class="col-xs-6 shadow-2" #authForm="ngForm"
+    (submit)="authenticate()">
       <div class="inputs row center-xs middle-xs">
         <h3 class="col-xs-8 title">
           {{ mode }}
@@ -50,22 +53,33 @@ import { Component } from '@angular/core';
         <input
           class="col-xs-8"
           type="email"
+          name="email"
           placeholder="email"
+          [(ngModel)]="user.email"
+          #email="ngModel"
+          required
         >
-        <div class="error">
+        <div class="error"
+        [hidden]="email.valid ||  email.pristine">
           email is invalid
         </div>
         <input
           class="col-xs-8"
           type="password"
+          name="password"
           placeholder="password"
+          [(ngModel)]="user.password"
+          #password="ngModel"
+          required
         >
-        <div class="error">
+        <div class="error"
+        [hidden]="password.valid || password.pristine">
           password is required
         </div>
         <div class="actions col-xs-12">
           <div class="row center-xs">
             <button type="submit" class="btn-light"
+            [disabled]="!authForm.form.valid"
             >
               {{ mode }}
             </button>
@@ -82,6 +96,12 @@ import { Component } from '@angular/core';
 })
 
 export class AuthContainer {
+
+  constructor(
+    private router: Router,
+    private auth: AuthService,
+  ){}
+
   user = {
     email: '',
     password: ''
@@ -98,5 +118,10 @@ export class AuthContainer {
       this.linkText = 'Don\'t have an account?';
       this.mode = 'singin';
     }
+  }
+
+  authenticate() {
+    this.auth.authenticate(this.mode, this.user)
+    .subscribe(() => this.router.navigate(['']));
   }
 }
