@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../services/auth';
 
 @Component({
   selector: 'app-bar',
@@ -33,4 +34,11 @@ import { Component } from '@angular/core';
   `
 })
 
-export class AppBar {};
+export class AppBar {
+  constructor (
+    private auth: AuthService
+  ) {}
+  signout() {
+    this.auth.signout();
+  }
+};
