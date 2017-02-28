@@ -56,8 +56,8 @@ import { Router } from '@angular/router';
           name="email"
           placeholder="email"
           [(ngModel)]="user.email"
-          #email="ngModel"
           required
+          #email="ngModel"
         >
         <div class="error"
         [hidden]="email.valid ||  email.pristine">
@@ -69,8 +69,8 @@ import { Router } from '@angular/router';
           name="password"
           placeholder="password"
           [(ngModel)]="user.password"
-          #password="ngModel"
           required
+          #password="ngModel"
         >
         <div class="error"
         [hidden]="password.valid || password.pristine">
@@ -96,27 +96,27 @@ import { Router } from '@angular/router';
 })
 
 export class AuthContainer {
+  user = {
+    email: '',
+    password: ''
+  }
 
   constructor(
     private router: Router,
     private auth: AuthService,
   ){}
 
-  user = {
-    email: '',
-    password: ''
-  }
 
   mode: string = 'signin';
   linkText: string = 'Don\'t have an account?';
 
   changeMode() {
-    if(this.mode === 'signin') {
+    if (this.mode === 'signin') {
       this.mode = 'singup';
-      this.linkText = "Already have an account?";
+      this.linkText = 'Already have an account?';
     } else {
-      this.linkText = 'Don\'t have an account?';
       this.mode = 'singin';
+      this.linkText = 'Don\'t have an account?';
     }
   }
 
