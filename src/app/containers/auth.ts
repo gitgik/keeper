@@ -122,6 +122,8 @@ export class AuthContainer {
 
   authenticate() {
     this.auth.authenticate(this.mode, this.user)
-    .subscribe(() => this.router.navigate(['']));
+    .subscribe(() => this.router.navigate(['']),
+    (err) => console.log(err),
+    () => console.log("Navigated"));
   }
 }
