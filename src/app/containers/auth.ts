@@ -106,7 +106,6 @@ export class AuthContainer {
     private auth: AuthService,
   ){}
 
-
   mode: string = 'signin';
   linkText: string = 'Don\'t have an account?';
 
