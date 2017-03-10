@@ -8,15 +8,13 @@ import 'rxjs/add/observable/throw';
 export class ApiService {
   headers: Headers = new Headers({
     'Content-Type': 'application/json',
-    Accept: 'application/json'
+    'Accept': 'application/json'
   });
 
   api_url: string = "http://localhost:3500"
 
   // constructor to inject other services we need
-  constructor(private http: Http) {
-
-  }
+  constructor(private http: Http) {}
 
   private getJson(resp: Response) {
     return resp.json();
