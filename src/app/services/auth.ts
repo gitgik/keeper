@@ -10,7 +10,7 @@ import 'rxjs/Rx';
 @Injectable()
 export class AuthService implements CanActivate {
 
-  JWT_KEY: string  = 'keeper_token';
+  JWT_KEY: string  = '';
   JWT: string = '';
 
   constructor(
